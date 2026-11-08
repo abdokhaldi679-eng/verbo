@@ -12,15 +12,18 @@ Démo web : [abdokhaldi679-eng.github.io/verbo](https://abdokhaldi679-eng.github
 
 ## Télécharger
 
-- **Windows** : [installateur Verbo 0.1.0](https://github.com/abdokhaldi679-eng/verbo/releases/latest/download/Verbo.Setup.0.1.0.exe)
+- **Windows** : [installateur Verbo 0.1.1](https://github.com/abdokhaldi679-eng/verbo/releases/latest/download/Verbo.Setup.0.1.1.exe)
   (l’installateur n’est pas signé, SmartScreen peut avertir)
+- **Android** : [APK Verbo 0.1.1](https://github.com/abdokhaldi679-eng/verbo/releases/latest/download/Verbo-0.1.1-android-debug.apk)
+  (APK de test, installation hors Play Store)
 - **Web / PWA** : [démo en ligne](https://abdokhaldi679-eng.github.io/verbo/)
 - **Code source** : [dépôt GitHub](https://github.com/abdokhaldi679-eng/verbo)
 
 Toutes les versions : [releases](https://github.com/abdokhaldi679-eng/verbo/releases).
 
 Le projet est une **PWA** : une seule base de code, installable sur Windows, Android, iOS et
-Linux depuis le navigateur, et utilisable hors-ligne après la première visite.
+Linux depuis le navigateur, et utilisable hors-ligne après la première visite. Une
+**application Android native** (Capacitor) est également générée à partir du même code.
 
 > Verbo est un projet indépendant, sans aucun lien avec Duolingo. Aucun code, cours, audio
 > ou ressource de Duolingo n’est utilisé.
@@ -77,7 +80,7 @@ npm run build:win   # build + génère l'installateur Windows
 Résultat dans `release/` :
 
 - `release/win-unpacked/Verbo.exe` : version portable, à lancer directement ;
-- `release/Verbo Setup 0.1.0.exe` : installateur NSIS (choix du dossier, raccourcis bureau
+- `release/Verbo Setup 0.1.1.exe` : installateur NSIS (choix du dossier, raccourcis bureau
   et menu Démarrer).
 
 L’application charge `dist/index.html` via le protocole interne `app://verbo`, toutes les
@@ -89,6 +92,33 @@ exposées par le preload. Voir [SECURITY.md](./SECURITY.md).
 L’installateur n’est pas signé : Windows SmartScreen peut afficher un avertissement au
 premier lancement. Pour une distribution publique, signe l’exécutable avec un certificat
 Code Signing.
+
+## Application Android
+
+Le même code web est empaqueté avec **Capacitor** dans une application Android native
+(`android/`). L’APK est construit automatiquement par GitHub Actions
+(`.github/workflows/android-apk.yml`) et joint aux releases.
+
+```bash
+npm run android:sync   # build web + copie des fichiers dans android/
+npm run android:open   # ouvre le projet dans Android Studio
+```
+
+Pour compiler l’APK en local, il faut **Java 21**, le **SDK Android 36** et Gradle :
+
+```bash
+cd android
+gradlew assembleDebug        # Windows
+./gradlew assembleDebug      # macOS / Linux
+```
+
+L’APK est généré dans `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+L’APK publié est une **version de test signée avec la clé de débogage Android** : il
+s’installe sur Android 7.0+ (API 24) après avoir autorisé les sources inconnues, mais il
+n’est pas destiné au Google Play Store. Une publication Play Store nécessite un bundle
+`.aab` signé avec une clé de release conservée hors du dépôt. La progression reste stockée
+localement dans le WebView de l’application (`localStorage`), sans envoi à un serveur.
 
 ### Audio et exercices d’écoute
 

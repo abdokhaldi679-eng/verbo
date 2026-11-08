@@ -12,11 +12,16 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
-// PWA : service worker uniquement en HTTP(S). Dans Electron (file://), on s'en passe.
+// PWA : service worker uniquement en HTTP(S) hors coque native. Dans Electron
+// (app://) et Capacitor (https://localhost), les fichiers sont déjà embarqués :
+// un service worker n'apporterait rien et pourrait figer une ancienne version.
+const isNativeShell = 'Capacitor' in window
+
 if (
   import.meta.env.PROD &&
   'serviceWorker' in navigator &&
-  window.location.protocol.startsWith('http')
+  window.location.protocol.startsWith('http') &&
+  !isNativeShell
 ) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {

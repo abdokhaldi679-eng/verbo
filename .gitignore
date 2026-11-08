@@ -34,3 +34,15 @@ release
 .env.*
 !.env.example
 
+# Android / Capacitor (les sources du projet android/ restent versionnées)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/capacitor-cordova-android-plugins/build/
+*.apk
+*.aab
+*.jks
+*.keystore
+

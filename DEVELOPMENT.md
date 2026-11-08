@@ -7,6 +7,7 @@ Ce document résume tout ce qu’il faut savoir pour reprendre, modifier et dist
 - Windows 10/11 (le code web fonctionne aussi sur macOS/Linux).
 - **Node.js 22+** et npm.
 - Un éditeur (VS Code recommandé).
+- Pour Android : **Java 21**, **SDK Android 36** et Android Studio (facultatif pour la CI).
 
 ## 2. Démarrer
 
@@ -22,6 +23,8 @@ npm run build      # TypeScript + build de production dans dist/
 npm run lint       # oxlint
 npm run desktop    # build + lancement Electron
 npm run build:win  # build + installateur Windows dans release/
+npm run android:sync  # build web + synchronisation du projet Android
+npm run android:open  # ouvre android/ dans Android Studio
 npm run preview    # prévisualise dist/
 ```
 
@@ -30,10 +33,13 @@ npm run preview    # prévisualise dist/
 ```
 electron/main.cjs      processus principal : fenêtre, IPC, coffre DPAPI, protocole app://
 electron/preload.cjs   bridge minimal (load/save/clear)
+android/               projet Android natif généré par Capacitor (sources versionnées)
+capacitor.config.ts    identifiant, nom et configuration de la coque Android
 src/data/              contenu pédagogique et catalogue des langues
 src/lib/               état global, XP, SRS, audio, normalisation
 src/components/        interface React
 src/styles.css         styles globaux
+build/                 icône Windows et génération des visuels Android
 ```
 
 Points importants :
@@ -77,7 +83,9 @@ ils servent de clés de répétition espacée.
 - L’application est servie par `app://verbo`, pas par `file://` ; les chemins sont confinés
   à `dist/`.
 - Les fuses Electron sont définis dans `package.json` (`electronFuses`).
-- Ne jamais committer de secret (client ID, secret OAuth, certificat).
+- Android : `android:allowBackup="false"`, `android:usesCleartextTraffic="false"` et aucune
+  permission superflue (seulement `INTERNET`, requis par le WebView local).
+- Ne jamais committer de secret (client ID, secret OAuth, certificat, clé de signature).
 
 Détails et limites : voir [SECURITY.md](./SECURITY.md).
 
@@ -103,6 +111,7 @@ Pour l’activer :
 npm run lint
 npm run build
 npm run build:win
+npm run android:sync
 ```
 
 Vérifier ensuite :
@@ -111,14 +120,18 @@ Vérifier ensuite :
 - la création de `%APPDATA%\Verbo\progress.enc` ;
 - la relance de l’application (déchiffrement de la progression) ;
 - une leçon complète dans au moins deux paires de langues ;
-- l’absence d’erreur dans la console (DevTools désactivés en production).
+- l’absence d’erreur dans la console (DevTools désactivés en production) ;
+- l’installation de l’APK Android et une leçon complète sur un appareil ou un émulateur.
 
 ## 8. Distribution
 
-- L’installateur est généré dans `release/Verbo Setup 0.1.0.exe`.
+- L’installateur Windows est généré dans `release/Verbo Setup 0.1.1.exe`.
 - Il n’est pas signé : SmartScreen peut afficher un avertissement.
 - Pour une diffusion publique, signer l’exécutable avec un certificat Code Signing et
   mettre en place des mises à jour signées.
+- Android : le workflow `.github/workflows/android-apk.yml` construit un APK de test
+  (`Verbo-<version>-android-debug.apk`) et le joint à la release GitHub. Pour le Play Store,
+  générer un `.aab` release signé et conserver la clé hors du dépôt.
 
 ## 9. Licence
 

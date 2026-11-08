@@ -1,7 +1,7 @@
 {
   "name": "verbo",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Application open source d'apprentissage des langues, inspirée des apps gamifiées.",
   "license": "MIT",
   "author": "Verbo contributors",
@@ -13,14 +13,19 @@
     "start": "npm run build && electron .",
     "desktop": "npm run build && electron .",
     "build:win": "npm run build && electron-builder --win --publish never",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.6.0",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

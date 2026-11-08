@@ -4,7 +4,7 @@ Verbo est une application locale : elle n’envoie aucune progression, aucun ide
 aucune donnée d’usage à un serveur. Ce document décrit les mesures en place, les limites
 connues et la procédure de signalement.
 
-Dernière mise à jour : 8 novembre 2026 — version 0.1.0.
+Dernière mise à jour : 8 novembre 2026 — version 0.1.1.
 
 ## Versions prises en charge
 
@@ -18,7 +18,7 @@ Les actifs à protéger sont :
 
 - la progression d’apprentissage (XP, série, historique, cartes de révision) ;
 - les futures données de compte (jetons OAuth) ;
-- l’intégrité de l’application installée sur Windows.
+- l’intégrité de l’application installée sur Windows et Android.
 
 Les menaces considérées sont un autre compte Windows sur la même machine, un fichier de
 progression volé ou altéré, une page web malveillante chargée dans le renderer, une
@@ -49,6 +49,19 @@ injection via les données IPC, et une dépendance compromise.
   disque peut la lire.
 - Aucun service worker ne met en cache des réponses d’API : il n’y a pas d’API distante.
 - Le bouton d’export produit un JSON local, à conserver de façon sûre.
+
+### Application Android (Capacitor)
+
+- Les fichiers web sont embarqués dans l’APK et servis par le WebView local via
+  `https://localhost` ; aucun contenu distant n’est chargé.
+- La progression utilise le `localStorage` du WebView, isolé dans le bac à sable de
+  l’application Android (**non chiffré**, comme la version web).
+- `android:allowBackup="false"` : la progression n’est pas incluse dans les sauvegardes
+  Android/Google.
+- `android:usesCleartextTraffic="false"` : aucun trafic HTTP en clair n’est autorisé.
+- Seule la permission `INTERNET` est déclarée (nécessaire au serveur local du WebView).
+- La CSP du build s’applique aussi au WebView ; le service worker n’est pas enregistré dans
+  la coque native puisque les fichiers sont déjà locaux.
 
 ## Durcissement Electron
 
@@ -85,7 +98,7 @@ injection via les données IPC, et une dépendance compromise.
 ## Dépendances et audit
 
 - Audit de production : `npm audit --omit=dev` → **0 vulnérabilité** (4 dépendances de
-  production : React et React DOM).
+  production : React, React DOM et Capacitor).
 - Audit complet : 11 avis **de développement uniquement** (2 low, 9 moderate), concentrés
   dans `electron-builder`, `workbox-build` et leurs dépendances transitives
   (`minimatch`, `deepmerge`). Ces paquets ne sont pas embarqués dans l’application
@@ -97,6 +110,9 @@ injection via les données IPC, et une dépendance compromise.
 
 - **Installateur non signé** : Windows SmartScreen peut afficher un avertissement. Une
   distribution publique doit signer l’exécutable avec un certificat Code Signing.
+- **APK Android signé avec la clé de débogage** : il est installable pour tester, mais ne
+  doit pas être publié sur le Google Play Store. Une version de production nécessite une
+  clé de signature release et un bundle `.aab`.
 - **Pas de mises à jour automatiques** : une nouvelle version doit être réinstallée
   manuellement.
 - **Pas encore de comptes Google/Facebook** : l’OAuth (PKCE, `state`, jetons chiffrés) sera

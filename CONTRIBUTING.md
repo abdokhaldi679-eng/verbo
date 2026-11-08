@@ -34,6 +34,10 @@ npm run build
   cible.
 - Ne casse pas les règles de sécurité listées dans `SECURITY.md` (sandbox, IPC validé,
   CSP, pas de Node dans le renderer).
+- Android : `android/` est un projet Capacitor versionné. Après une modification web,
+  lance `npm run android:sync` ; ne modifie pas à la main le contenu copié dans
+  `android/app/src/main/assets/public`. Incrémente `versionCode` dans
+  `android/app/build.gradle` à chaque publication sur le Play Store.
 
 ## Contenu pédagogique
 

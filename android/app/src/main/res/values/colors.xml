@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs de marque Verbo (remplacent les valeurs par défaut de Capacitor). -->
+    <color name="colorPrimary">#4F46E5</color>
+    <color name="colorPrimaryDark">#4338CA</color>
+    <color name="colorAccent">#6366F1</color>
+    <color name="verbo_brand">#4F46E5</color>
+    <color name="verbo_background">#F4F5FB</color>
+</resources>
