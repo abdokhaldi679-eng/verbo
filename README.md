@@ -10,6 +10,15 @@ Dépôt : [github.com/abdokhaldi679-eng/verbo](https://github.com/abdokhaldi679-
 
 Démo web : [abdokhaldi679-eng.github.io/verbo](https://abdokhaldi679-eng.github.io/verbo/)
 
+## Télécharger
+
+- **Windows** : [installateur Verbo 0.1.0](https://github.com/abdokhaldi679-eng/verbo/releases/latest/download/Verbo.Setup.0.1.0.exe)
+  (l’installateur n’est pas signé, SmartScreen peut avertir)
+- **Web / PWA** : [démo en ligne](https://abdokhaldi679-eng.github.io/verbo/)
+- **Code source** : [dépôt GitHub](https://github.com/abdokhaldi679-eng/verbo)
+
+Toutes les versions : [releases](https://github.com/abdokhaldi679-eng/verbo/releases).
+
 Le projet est une **PWA** : une seule base de code, installable sur Windows, Android, iOS et
 Linux depuis le navigateur, et utilisable hors-ligne après la première visite.
 
