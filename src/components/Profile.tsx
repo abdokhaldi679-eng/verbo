@@ -143,14 +143,17 @@ export function Profile() {
         <h2>À propos</h2>
         <div className="about">
           <p>
-            <strong>Verbo 0.1.0</strong> — application open source sous licence MIT.
+            <strong>Verbo {__APP_VERSION__}</strong> — application open source sous licence MIT.
           </p>
           <p>
             Inspirée des applications d’apprentissage gamifiées, sans aucun lien avec Duolingo.
             Les cours sont écrits pour ce projet et modifiables dans{' '}
             <code>src/data/course.ts</code>.
           </p>
-          <p>React + Vite + TypeScript · application Electron pour Windows · PWA installable · fonctionne hors-ligne.</p>
+          <p>
+            React + Vite + TypeScript · Windows (Electron), Android (Capacitor) et PWA installable ·
+            fonctionne hors-ligne.
+          </p>
         </div>
       </section>
     </main>

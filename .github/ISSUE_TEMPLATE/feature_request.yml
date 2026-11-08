@@ -1,0 +1,55 @@
+name: Proposer une amélioration
+description: Suggérer une fonctionnalité ou une amélioration de Verbo
+title: "[Idée] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci pour ta proposition. Décris le besoin avant la solution : cela aide à trouver
+        la meilleure façon de l'implémenter.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Quel problème veux-tu résoudre ?
+      description: Par exemple « je ne sais pas quels exercices réviser en priorité ».
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Domaine concerné
+      options:
+        - Contenu et cours
+        - Interface et expérience
+        - Apprentissage et révisions
+        - Windows
+        - Android
+        - Web / PWA
+        - Accessibilité
+        - Sécurité et vie privée
+        - Documentation
+        - Autre
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: Je peux aider à implémenter cette idée.
+          required: false
+        - label: Je peux aider à tester cette idée.
+          required: false

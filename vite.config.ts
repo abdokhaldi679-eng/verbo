@@ -1,6 +1,11 @@
 import react from '@vitejs/plugin-react'
+import { readFileSync } from 'node:fs'
 import { defineConfig, type Plugin } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+
+const pkg = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
+) as { version: string }
 
 // CSP injectée uniquement dans le build : le serveur de développement Vite
 // utilise des scripts inline et une websocket pour le HMR.
@@ -43,6 +48,9 @@ function contentSecurityPolicy(): Plugin {
 export default defineConfig({
   // Chemins relatifs : indispensable pour charger l'app depuis file:// dans Electron.
   base: './',
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+  },
   plugins: [
     react(),
     contentSecurityPolicy(),

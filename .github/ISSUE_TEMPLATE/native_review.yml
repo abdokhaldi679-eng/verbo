@@ -1,0 +1,65 @@
+name: Relecture par un locuteur natif
+description: Signaler une traduction, une consigne ou un exemple à corriger
+title: "[Relecture] "
+labels: ["help wanted", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de contribuer à la qualité du contenu. Indique la langue, la phrase actuelle et
+        la correction proposée. Les corrections seront relues avant d'être intégrées.
+  - type: dropdown
+    id: language
+    attributes:
+      label: Langue concernée
+      options:
+        - Français
+        - Anglais
+        - Espagnol
+        - Allemand
+        - Italien
+        - Portugais
+        - Néerlandais
+        - Polonais
+        - Suédois
+        - Russe
+        - Ukrainien
+        - Turc
+        - Arabe
+        - Chinois
+        - Japonais
+        - Coréen
+        - Grec
+        - Hindi
+        - Vietnamien
+        - Indonésien
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Texte actuel
+      description: Copie la phrase ou la consigne telle qu'elle apparaît dans Verbo.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correction proposée
+      description: Explique aussi pourquoi la formulation actuelle est incorrecte ou peu naturelle.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Où trouver ce texte ?
+      placeholder: "Leçon 2, exercice 3 / écran Profil / consigne de l'exercice d'écoute…"
+    validations:
+      required: false
+  - type: checkboxes
+    id: native
+    attributes:
+      label: Langue maternelle
+      options:
+        - label: Je suis locuteur ou locutrice natif·ve de cette langue.
+          required: true

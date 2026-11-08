@@ -21,6 +21,7 @@ Démo web : [abdokhaldi679-eng.github.io/verbo](https://abdokhaldi679-eng.github
 - **Code source** : [dépôt GitHub](https://github.com/abdokhaldi679-eng/verbo)
 
 Toutes les versions : [releases](https://github.com/abdokhaldi679-eng/verbo/releases).
+Feuille de route : [ROADMAP.md](./ROADMAP.md).
 
 Le projet est une **PWA** : une seule base de code, installable sur Windows, Android, iOS et
 Linux depuis le navigateur, et utilisable hors-ligne après la première visite. Une
@@ -242,12 +243,21 @@ La synthèse vocale utilise automatiquement la locale de la langue cible.
 - Mode sombre.
 - Tests unitaires du moteur (`vitest`) et tests E2E (`playwright`).
 
-## Contribuer
+## Rejoindre le projet
 
-Les contributions sont bienvenues. Lis [CONTRIBUTING.md](./CONTRIBUTING.md) et consulte les
-[issues du dépôt](https://github.com/abdokhaldi679-eng/verbo/issues) : elles décrivent les
-chantiers ouverts (OAuth Google/Facebook, relecture native, cible Linux, tests, signature
-Windows).
+Verbo grandit avec les contributions. Tout le monde peut aider, même sans être développeur :
+
+- [Feuille de route](./ROADMAP.md) — les priorités et les prochaines versions ;
+- [Discussions](https://github.com/abdokhaldi679-eng/verbo/discussions) — questions, idées,
+  échanges ;
+- [Issues](https://github.com/abdokhaldi679-eng/verbo/issues) — bugs et chantiers ouverts ;
+- [Bonnes premières issues](https://github.com/abdokhaldi679-eng/verbo/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+  — pour commencer en douceur ;
+- [Guide de contribution](./CONTRIBUTING.md) et [code de conduite](./CODE_OF_CONDUCT.md).
+
+Profils recherchés : développeurs React/TypeScript, Android et Electron ; **locuteurs natifs**
+des 20 langues pour relire les cours ; designers UI/UX ; traducteurs ; testeurs Windows,
+Android et navigateurs.
 
 Pour proposer une amélioration :
 

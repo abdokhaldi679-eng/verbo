@@ -1,0 +1,59 @@
+name: Signaler un bug
+description: Décrire un problème reproductible dans Verbo
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler ce bug. Vérifie d'abord qu'il n'existe pas déjà
+        dans les issues. Pour une faille de sécurité, ne publie rien ici : lis SECURITY.md.
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Plateforme
+      options:
+        - Application Windows
+        - Application Android (APK)
+        - Web / PWA
+        - Autre
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version de Verbo
+      placeholder: "0.1.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du problème
+      description: Ce qui se passe, et pourquoi c'est un problème.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: |
+        1. Ouvrir Verbo
+        2. Choisir français → espagnol
+        3. Lancer la leçon 2
+        4. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Captures ou journaux
+      description: Ajoute une capture d'écran ou le message d'erreur si tu en as un.
+    validations:
+      required: false
