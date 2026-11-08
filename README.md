@@ -1,7 +1,12 @@
 # Verbo 🦜
 
+[![CI](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/ci.yml/badge.svg)](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/ci.yml)
+[![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
+
 Application **open source** d’apprentissage des langues, inspirée des applications gamifiées
 (XP, séries, parcours en unités) mais avec **ton propre contenu**.
+
+Dépôt : [github.com/abdokhaldi679-eng/verbo](https://github.com/abdokhaldi679-eng/verbo)
 
 Le projet est une **PWA** : une seule base de code, installable sur Windows, Android, iOS et
 Linux depuis le navigateur, et utilisable hors-ligne après la première visite.
