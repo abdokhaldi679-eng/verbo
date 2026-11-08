@@ -8,6 +8,8 @@ Application **open source** d’apprentissage des langues, inspirée des applica
 
 Dépôt : [github.com/abdokhaldi679-eng/verbo](https://github.com/abdokhaldi679-eng/verbo)
 
+Démo web : [abdokhaldi679-eng.github.io/verbo](https://abdokhaldi679-eng.github.io/verbo/)
+
 Le projet est une **PWA** : une seule base de code, installable sur Windows, Android, iOS et
 Linux depuis le navigateur, et utilisable hors-ligne après la première visite.
 
