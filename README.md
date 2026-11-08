@@ -202,6 +202,20 @@ La synthèse vocale utilise automatiquement la locale de la langue cible.
 - Mode sombre.
 - Tests unitaires du moteur (`vitest`) et tests E2E (`playwright`).
 
+## Contribuer
+
+Les contributions sont bienvenues. Lis [CONTRIBUTING.md](./CONTRIBUTING.md) et consulte les
+[issues du dépôt](https://github.com/abdokhaldi679-eng/verbo/issues) : elles décrivent les
+chantiers ouverts (OAuth Google/Facebook, relecture native, cible Linux, tests, signature
+Windows).
+
+Pour proposer une amélioration :
+
+1. Fork du dépôt ou création d’une branche dédiée.
+2. `npm install` puis `npm run dev`.
+3. `npm run lint` et `npm run build`.
+4. Pull request avec une description claire et une capture si l’interface change.
+
 ## Licence
 
 MIT — voir [LICENSE](./LICENSE). Tu peux réutiliser, modifier et distribuer le code, y compris
