@@ -1,6 +1,7 @@
 # Verbo 🦜
 
 [![CI](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/ci.yml/badge.svg)](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/ci.yml)
+[![APK Android](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/android-apk.yml/badge.svg)](https://github.com/abdokhaldi679-eng/verbo/actions/workflows/android-apk.yml)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
 
 Application **open source** d’apprentissage des langues, inspirée des applications gamifiées
