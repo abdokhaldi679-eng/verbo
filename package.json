@@ -12,7 +12,7 @@
     "build": "tsc -b && vite build",
     "start": "npm run build && electron .",
     "desktop": "npm run build && electron .",
-    "build:win": "npm run build && electron-builder --win",
+    "build:win": "npm run build && electron-builder --win --publish never",
     "lint": "oxlint",
     "preview": "vite preview"
   },
